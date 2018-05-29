@@ -2,10 +2,16 @@
 
 {% block main %}
   <div class="login-form center-block">
-    <h2>Please Log in</h2>
+    <div class="header">
+            <div class="centered">
+			      <img id="login_img" src="http://www.aistac.mx/wp-content/uploads/2015/09/medico.png"></img>
+			      <div><h1>Employee Login</h1></div>
+		    	</div>
+		    	</div>
     {% include 'flash_messages.html' %}
     <form action="{{ url_for('login') }}" method="post">
       {{ form.csrf_token }}
+      <fieldset class="account-info">
       <div class="form-group">
         {{ form.username.label }}
         {{ form.username(class='form-control', placeholder="Enter your username") }}
@@ -15,6 +21,7 @@
         {{ form.password(class='form-control') }}
       </div>
       <button type="submit" name="submit" class="btn btn-primary btn-block">Log in</button>
+      </fieldset>
     </form>
   </div>
 {% endblock %}
